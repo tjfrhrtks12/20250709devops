@@ -1,24 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HealthPage from "./pages/HealthPage"; // 또는 "./HealthPage" 위치에 따라 수정
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React123
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/health" element={<HealthPage />} />
+          {/* 메인 페이지도 필요하면 추가 */}
+          <Route path="/" element={
+            <header className="App-header">
+              <p>메인 화면입니다. <a href="/health">서버 상태 확인</a></p>
+            </header>
+          } />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
