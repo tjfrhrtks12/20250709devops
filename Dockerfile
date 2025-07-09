@@ -20,7 +20,7 @@ FROM nginx:stable-alpine
 COPY --from=builder /app/build /usr/share/nginx/html
 
 # nginx 기본 설정 덮어쓰기 (선택)
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # 컨테이너 외부 노출 포트
 EXPOSE 80
